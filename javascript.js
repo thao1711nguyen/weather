@@ -4,7 +4,7 @@ const cBtn = document.getElementById('c')
 const fBtn = document.getElementById('f')
 
 function displayTemp(data) {
-    const temperature = document.querySelectorAll('#weather h4')[0]
+    const temperature = document.querySelectorAll('#weather > h4')[0]
     if(temperature.dataset.unit === 'c') {
         temperature.textContent = `Temperature: ${data.current.temp_c}℃`
         temperature.dataset.value = data.current.temp_c
@@ -16,11 +16,11 @@ function displayTemp(data) {
 function displayWeather(data) {
     document.getElementById('error').classList.remove('display')
     document.getElementById('mid').classList.add('display')
-    const location = document.querySelector('#mid h2')
+    const location = document.querySelector('#mid > div > h2')
     const weatherCondition = document.querySelector('#weather > div > h4')
-    const icon = document.querySelector('#weather img')
-    const humidity = document.querySelectorAll('#weather h4')[1]
-    const uv = document.querySelectorAll('#weather h4')[2]
+    const icon = document.querySelector('#weather > div > img')
+    const humidity = document.querySelectorAll('#weather > h4')[1]
+    const uv = document.querySelectorAll('#weather > h4')[2]
 
     location.textContent = `${data.location.name}, ${data.location.country}`
     weatherCondition.textContent = `${data.current.condition.text}`
@@ -48,7 +48,7 @@ async function howWeather(location) {
     }
 }
 function changeTempUnit(unit) {
-    const temperature = document.querySelectorAll('#weather h4')[0]
+    const temperature = document.querySelectorAll('#weather > h4')[0]
     if(temperature.dataset.unit !== unit) {
         if(temperature.dataset.value !== "") {
             switch(unit) {
@@ -68,9 +68,13 @@ function changeTempUnit(unit) {
 }
 cBtn.addEventListener('click', () => {
     changeTempUnit('c')
+    fBtn.classList.remove('clicked')
+    cBtn.classList.add('clicked')
 })
 fBtn.addEventListener('click', () => {
     changeTempUnit('f')
+    cBtn.classList.remove('clicked')
+    fBtn.classList.add('clicked')
 })
 searchBox.addEventListener('keyup', async function(e) {
     if(e.key === 'Enter') {
