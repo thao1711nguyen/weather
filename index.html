@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App by Thao</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js" defer></script>
+</head>
+<body>
+    <div id="head">
+        <h1>Weather App</h1>
+        <div id="search">
+            <input type="search">
+            <ion-icon name="search-outline" aria-label="search"></ion-icon>
+        </div>
+        <div id="temperature">
+            <button id="c">C</button>
+            <button id="f">F</button>
+        </div>
+    </div>
+    <div id="mid">
+        <h2></h2>
+        <div id="weather">
+            <h3> Current condition</h3>
+            <div>
+                <h4></h4>
+                <img src="" alt="">  <!-- condition icon -->
+            </div>
+            <h4 data-unit="c" data-value="">temperature</h4>
+            <h4></h4>
+            <h4></h4>
+        </div>
+    </div>
+    <div id="error">
+        <h2></h2>
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
